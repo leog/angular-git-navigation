@@ -1,4 +1,3 @@
-/*global require */
 require([
     "require.config"
 ], function() {
@@ -6,7 +5,8 @@ require([
         "require",
         "angular",
         "angular-route",
-        "angular-animate"
+        "angular-animate",
+        "css!gitNav.css"
     ], function(require, angular) {
         angular
             .module("githubRepoNavigation", ["ngAnimate", "ngRoute"])
