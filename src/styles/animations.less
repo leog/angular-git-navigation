@@ -4,42 +4,41 @@
   overflow: hidden;
 }
 
-.init {
-    position:absolute;
-    top:0;
-    width:100%;
-}
+@breadcrumbsHeight: 30px;
 
 .view-animation {
-    .init;
-    .ng-enter {
-        .to_right {
+    top: @breadcrumbsHeight;
+    position:absolute;
+    width:100%;
+    &.ng-enter {
+        &.to_right {
             -moz-animation: enter_animation_right 1s;
             -webkit-animation: enter_animation_right 1s;
             animation: enter_animation_right 1s;
-            top: 0;
+            top: @breadcrumbsHeight;
             left: -100%;
         }
-        .to_left {
+        &.to_left {
             -moz-animation: enter_animation_left 1s;
             -webkit-animation: enter_animation_left 1s;
             animation: enter_animation_left 1s;
-            top:0;
+            top:@breadcrumbsHeight;
             left:100%;
         }
     }
-    .ng-leave {
-        .init;
-        .to_right {
+    &.ng-leave {
+        &.to_right {
             -moz-animation: enter_animation_right 1s;
             -webkit-animation: leave_animation_right 1s;
             animation: leave_animation_right 1s;
+            top: @breadcrumbsHeight;
             left:0;
         }
-        .to_left {
+        &.to_left {
             -moz-animation: leave_animation_left 1s;
             -webkit-animation: leave_animation_left 1s;
             animation: leave_animation_left 1s;
+            top: @breadcrumbsHeight;
             left:0;
         }
     }
