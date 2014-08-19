@@ -50,3 +50,4 @@ gulp.task('dev', ["lint", "less", "watch"]);
 // TODO: Create gh-pages for standalone and not standalone versions
 // TODO: Improve README
 // TODO: Figure out using ui-router to avoid URL change on navigation
+// TODO: Namespacing styles
