@@ -71,7 +71,7 @@ define([
             };
         }])
         .config(['$routeProvider', function($routeProvider) {
-            $routeProvider.when("/", {
+            var commonRouteConfig = {
                 template : "<content></content>",
                 controller: "githubRepoNavigationCtrl",
                 resolve: {
@@ -80,16 +80,9 @@ define([
                         return github.fetchData();
                     }]
                 }
-            });
-            $routeProvider.when("/:path*", {
-                template : "<content></content>",
-                controller: "githubRepoNavigationCtrl",
-                resolve: {
-                    data: ['github', '$route', function(github, $route) {
-                        github.setPath($route.current.params.path);
-                        return github.fetchData();
-                    }]
-                }
+            };
+            ["/", "/:path*"].forEach(function(path) {
+                $routeProvider.when(path, commonRouteConfig);
             });
         }])
         .controller("githubRepoNavigationCtrl", ['$scope', 'data', function($scope, data) {

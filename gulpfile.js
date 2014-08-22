@@ -1,29 +1,26 @@
 var gulp = require('gulp'),
-    less = require('gulp-less'),
-    eslint = require('gulp-eslint'),
-    path = require('path'),
-    rjs = require('gulp-requirejs'),
-    uglify = require('gulp-uglify');
+    plugins = require('gulp-load-plugins')(),
+    path = require('path');
 
 gulp.task('watch', function () {
     gulp.watch('./src/*.less', ['less']);
 });
 
 gulp.task("rjs", function() {
-    rjs({
+    plugins.requirejs({
         baseUrl: 'src/scripts',
         name: '../../bower_components/almond/almond',
         include: ['angular-git-navigation'],
         deps: ["config"],
-        out: './angular-git-navigation.js',
+        out: './angular-git-navigation-standalone.js',
         wrap: true
-    }).pipe(uglify())
-    .pipe(gulp.dest("standalone"));
+    }).pipe(plugins.uglify())
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task('less', function () {
     gulp.src('./src/styles/*.less')
-        .pipe(less({
+        .pipe(plugins.less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(gulp.dest('./src/styles'));
@@ -31,20 +28,20 @@ gulp.task('less', function () {
 
 gulp.task('lint', function () {
     gulp.src(['src/*.js'])
-        .pipe(eslint({
+        .pipe(plugins.eslint({
             globals: {
                 'require':true,
                 'define': true,
                 'document': true
             }
         }))
-        .pipe(eslint.format());
+        .pipe(plugins.eslint.format());
 });
 
 
 gulp.task('dev', ["lint", "less", "watch"]);
+gulp.task('build', ["lint", "less", "rjs"]);
 
-// TODO: gulp-load-plugins
 // TODO: rjs excluding config.js
 // TODO: Create standalone & not standalone tasks
 // TODO: Create gh-pages for standalone and not standalone versions
