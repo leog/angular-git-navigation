@@ -53,4 +53,3 @@ gulp.task('build', ["lint", "less", "rjs"]);
 
 // TODO: Create gh-pages for standalone and not standalone versions
 // TODO: Improve README
-// TODO: Namespacing styles
