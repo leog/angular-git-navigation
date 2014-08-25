@@ -3,4 +3,4 @@ angular-git-navigation
 
 Show files from a Github repository and navigate through folders.
 
-[Demo](http://leog.github.io/angular-git-navigation/)
+<a href="http://leog.github.io/angular-git-navigation/" target="_blank">Github demo</a>
