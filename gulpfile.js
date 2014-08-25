@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     path = require('path');
 
 gulp.task('watch', function () {
-    gulp.watch('./src/*.less', ['less']);
+    gulp.watch('./src/**/*.less', ['less']);
 });
 
 gulp.task("rjs", function() {
@@ -51,5 +51,6 @@ gulp.task('lint', function () {
 gulp.task('dev', ["lint", "less", "watch"]);
 gulp.task('build', ["lint", "less", "rjs"]);
 
+// TODO: Follow up require-css issue to load octicons.css: https://github.com/guybedford/require-css/issues/163
 // TODO: Create gh-pages for standalone and not standalone versions
 // TODO: Improve README

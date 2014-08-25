@@ -2,9 +2,21 @@ github-nav {
     font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.4;
 
+    .view-animation {
+        background-color: #f8f8f8;
+    }
+
     * {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+    }
+
+    a {
+        color: #4183c4;
+        text-decoration: none;
+        &:hover, &:focus, &:active {
+            text-decoration: underline;
+        }
     }
 
     ul {
@@ -13,10 +25,61 @@ github-nav {
         list-style: none;
     }
 
-    ul.breadcrumbs li {
-        float: left;
-        color: #4183c4;
-        font-weight: bold;
-        font-size: 18px;
+    ul.files {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        li {
+            padding-left: 10px;
+            border-bottom: 1px solid #eee;
+            height: 33px;
+            line-height: 33px;
+            span.icon {
+                &.octicon{
+                    margin-right: 5px;
+                    &.octicon-file-text {
+                        color: #777;
+                    }
+                    &.octicon-file-directory {
+                        color: #80a6cd;
+                    }
+                }
+
+                &.loading {
+                    background-image: url("//assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif");
+                    background-repeat: no-repeat;
+                    background-size: 16px;
+                    width: 16px;
+                    height: 16px;
+                    display: inline-block;
+                    margin-right: 3px;
+                    position: relative;
+                    top: 3px;
+                    left: -2px;
+                }
+            }
+            &.last {
+                border-bottom: none;
+            }
+        }
+    }
+
+    ul.breadcrumbs {
+        li {
+            float: left;
+            color: #4183c4;
+            font-weight: bold;
+            font-size: 18px;
+            &:after {
+                color: #999;
+                font-weight: normal;
+                content: '\00a0\002F\00a0';
+            }
+            &.last {
+                color: #000;
+                &:after {
+                    content: '';
+                }
+            }
+        }
     }
 }
