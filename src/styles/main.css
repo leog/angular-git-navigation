@@ -1,0 +1,76 @@
+github-nav {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+github-nav .view-animation {
+  background-color: #f8f8f8;
+}
+github-nav * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+github-nav a {
+  color: #4183c4;
+  text-decoration: none;
+}
+github-nav a:hover,
+github-nav a:focus,
+github-nav a:active {
+  text-decoration: underline;
+}
+github-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+github-nav ul.files {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+github-nav ul.files li {
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  height: 33px;
+  line-height: 33px;
+}
+github-nav ul.files li span.icon.octicon {
+  margin-right: 5px;
+}
+github-nav ul.files li span.icon.octicon.octicon-file-text {
+  color: #777;
+}
+github-nav ul.files li span.icon.octicon.octicon-file-directory {
+  color: #80a6cd;
+}
+github-nav ul.files li span.icon.loading {
+  background-image: url("//assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif");
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+  left: -2px;
+}
+github-nav ul.files li.last {
+  border-bottom: none;
+}
+github-nav ul.breadcrumbs li {
+  float: left;
+  color: #4183c4;
+  font-weight: bold;
+  font-size: 18px;
+}
+github-nav ul.breadcrumbs li:after {
+  color: #999;
+  font-weight: normal;
+  content: '\00a0\002F\00a0';
+}
+github-nav ul.breadcrumbs li.last {
+  color: #000;
+}
+github-nav ul.breadcrumbs li.last:after {
+  content: '';
+}
