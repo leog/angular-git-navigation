@@ -1,7 +1,7 @@
 define([
     "../../bower_components/require-css/css!../styles/animations",
     "../../bower_components/require-css/css!../styles/main",
-    /*"../../bower_components/require-css/css!//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.css",*/
+    "../../bower_components/require-css/css!http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons",
     "../../bower_components/requirejs-plugins/src/image!//assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif"
 ], function() {
     var settings = {epsilonName:"ngGitNav"};
