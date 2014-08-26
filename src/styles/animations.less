@@ -1,30 +1,19 @@
 github-nav {
-    .view-container {
-        height:500px;
-        position:relative;
-        overflow: hidden;
-    }
-
-    @breadcrumbsHeight: 30px;
-
     .view-animation {
-        top: @breadcrumbsHeight;
-        position:absolute;
-        width:100%;
         &.ng-enter {
             &.to_right {
                 -moz-animation: enter_animation_right 1s;
                 -webkit-animation: enter_animation_right 1s;
                 animation: enter_animation_right 1s;
-                top: @breadcrumbsHeight;
+                top: 0;
                 left: -100%;
             }
             &.to_left {
                 -moz-animation: enter_animation_left 1s;
                 -webkit-animation: enter_animation_left 1s;
                 animation: enter_animation_left 1s;
-                top:@breadcrumbsHeight;
-                left:100%;
+                top: 0;
+                left: 100%;
             }
         }
         &.ng-leave {
@@ -32,15 +21,15 @@ github-nav {
                 -moz-animation: enter_animation_right 1s;
                 -webkit-animation: leave_animation_right 1s;
                 animation: leave_animation_right 1s;
-                top: @breadcrumbsHeight;
-                left:0;
+                top: 0;
+                left: 0;
             }
             &.to_left {
                 -moz-animation: leave_animation_left 1s;
                 -webkit-animation: leave_animation_left 1s;
                 animation: leave_animation_left 1s;
-                top: @breadcrumbsHeight;
-                left:0;
+                top: 0;
+                left: 0;
             }
         }
     }
