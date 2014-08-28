@@ -17,6 +17,7 @@ gulp.task("rjs", function() {
         include: ['ngGitNav'],
         deps: boot ? ["config"] : [],
         out: boot ? './ngGitNav.bootstrapped'+suffix+'.js' : './ngGitNav'+suffix+'.js',
+        stubModules : ['../../bower_components/require-css/css', '../../bower_components/require-css/./normalize'],
         wrap: {
             startFile: 'config/start.frag',
             endFile: 'config/end.frag'
