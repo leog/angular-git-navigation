@@ -1,7 +1,7 @@
 define([
     "../../bower_components/require-css/css!../styles/animations",
     "../../bower_components/require-css/css!../styles/main",
-    "../../bower_components/require-css/css!http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons",
+    "../../bower_components/require-css/css!../styles/octicons",
     "../../bower_components/requirejs-plugins/src/image!//assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif"
 ], function() {
     var settings = {epsilonName:"ngGitNav"};
@@ -26,7 +26,7 @@ define([
                     };
                     $state.go("main");
                 }],
-                template: "<div class='view-container'><ul class='breadcrumbs'><li><a target='_blank' ng-href='{{getGitUrl()}}'>{{user}}</a></li><li ng-switch='$root.breadcrumbs.length > 0' ng-class='{ last: $root.breadcrumbs.length == 0 }'><a href='' ng-click='prev({path: \"/\"}, -1)' ng-switch-when='true'>{{repo}}</a><span ng-switch-when='false'>{{repo}}</span></li><li ng-repeat='breadcrumb in $root.breadcrumbs' ng-switch='$last' ng-class='{ last: $last }'><span ng-switch-when='true'>{{breadcrumb.name}}</span><a ng-switch-when='false' href='' ng-click='prev(breadcrumb, $index)'>{{breadcrumb.name}}</a></li></ul><div class='view-animation' ng-class='{ to_left: $root.dir === false, to_right: $root.dir === true }' ui-view></div></div>"
+                template: "<div class='view-container' ng-style='$root.containerStyle'><ul class='breadcrumbs'><li><a target='_blank' ng-href='{{getGitUrl()}}'>{{user}}</a></li><li ng-switch='$root.breadcrumbs.length > 0' ng-class='{ last: $root.breadcrumbs.length == 0 }'><a href='' ng-click='prev({path: \"/\"}, -1)' ng-switch-when='true'>{{repo}}</a><span ng-switch-when='false'>{{repo}}</span></li><li ng-repeat='breadcrumb in $root.breadcrumbs' ng-switch='$last' ng-class='{ last: $last }'><span ng-switch-when='true'>{{breadcrumb.name}}</span><a ng-switch-when='false' href='' ng-click='prev(breadcrumb, $index)'>{{breadcrumb.name}}</a></li></ul><div class='view-animation' ng-class='{ to_left: $root.dir === false, to_right: $root.dir === true }' ui-view></div></div>"
             };
         })
         .directive("githubrepoContent", function() {
@@ -83,8 +83,9 @@ define([
             $stateProvider.state("main", {
                 template : "<githubrepo-content></githubrepo-content>",
                 params: ["path"],
-                controller: ["$scope", "data", function($scope, data) {
+                controller: ["$scope", "$rootScope", "data", function($scope, $rootScope, data) {
                     $scope.items = data;
+                    $rootScope.containerStyle = { height: data.length * 33 + 33 + 'px' };
                 }],
                 resolve: {
                     data: ["github", "$stateParams", function(github, $stateParams) {
@@ -97,6 +98,7 @@ define([
         .run(["$rootScope", function($rootScope) {
             $rootScope.dir = undefined;
             $rootScope.breadcrumbs = [];
+            $rootScope.containerStyle = {};
         }]);
     return settings;
 });

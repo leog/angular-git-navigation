@@ -27,9 +27,9 @@
     "angular": "1.2.21",
     "requirejs": "2.1.14",
     "angular-animate": "1.2.21",
-    "require-css": "https://github.com/leog/require-css.git#master",
     "almond": "0.2.9",
     "ui-router": "~0.2.10",
-    "requirejs-plugins": "~1.0.2"
+    "requirejs-plugins": "~1.0.2",
+    "require-css": "~0.1.5"
   }
 }
